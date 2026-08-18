@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101511" />
+    <title>ROOT // Quit Nicotine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top"><span class="brand-mark">R</span><span>ROOT<span class="muted">//</span></span></a>
+        <div class="top-status"><span class="pulse"></span><span id="todayLabel">TODAY</span><span class="divider"></span><span>LOCAL • PRIVATE</span></div>
+        <button class="icon-btn" id="settingsBtn" aria-label="Open settings">⚙</button>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">THE CRAVING IS NOT A COMMAND</p>
+          <h1>DON'T FIGHT IT.<br><em>OUTLAST IT.</em></h1>
+          <p class="hero-note">Notice the urge. Feel it without feeding it. Each time you let a craving rise and fall, you pull its root a little further from the ground.</p>
+        </div>
+        <div class="streak-card">
+          <span class="streak-label">CURRENT STREAK</span>
+          <div class="streak-number"><span id="streakDays">0</span><small>DAYS</small></div>
+          <div class="streak-meta"><span id="quitDateLabel">START YOUR RUN</span><span id="streakBadge">DAY ONE</span></div>
+          <div class="progress-line"><i id="yearProgress"></i></div>
+          <span class="tiny" id="yearProgressText">0 / 365 DAYS</span>
+        </div>
+      </section>
+
+      <section class="command-grid">
+        <div class="card checkin-card">
+          <div class="card-heading"><div><p class="kicker">DAILY COMMITMENT</p><h2>Win today.</h2></div><span class="date-chip" id="dayOfWeek">MON</span></div>
+          <button class="victory-btn" id="nicotineBtn"><span class="check-icon">✓</span><span><strong>I stayed nicotine-free today</strong><small>One honest choice. Then another.</small></span></button>
+          <div class="mindset-strip"><span>“Craving itself is suffering. The end of craving is freedom.”</span><span class="tiny">— adapted from the Four Noble Truths</span></div>
+        </div>
+
+        <div class="card urge-card">
+          <div class="card-heading"><div><p class="kicker">WHEN THE WAVE HITS</p><h2>Urge protocol</h2></div><span class="timer-icon">◷</span></div>
+          <p class="urge-intro">You do not need to solve your life right now. You need to make it through the next ten minutes.</p>
+          <div class="protocol"><span>01</span><p><b>Name it.</b> “This is craving.” Not me. Not an emergency.</p></div>
+          <div class="protocol"><span>02</span><p><b>Locate it.</b> Where does it live in your body? Breathe into that exact spot.</p></div>
+          <div class="protocol"><span>03</span><p><b>Move.</b> Cold water. A walk. Ten pushups. Change the signal.</p></div>
+          <button class="outline-btn" id="startTimer">START 10:00 RESET <span>→</span></button>
+        </div>
+
+        <div class="card score-card">
+          <p class="kicker">TODAY'S DISCIPLINE</p>
+          <div class="score-wrap"><div class="score-circle"><strong id="disciplineScore">0</strong><span>/ 5</span></div><p>Small promises<br>kept on purpose.</p></div>
+          <div class="mini-stats"><div><strong id="totalWins">0</strong><span>clean days</span></div><div><strong id="bestStreak">0</strong><span>best streak</span></div></div>
+        </div>
+      </section>
+
+      <section class="section-head"><div><p class="kicker">THE DAILY STANDARD</p><h2>Build the life you don't want to escape.</h2></div><p class="section-aside">Check it. Earn it. Repeat.</p></section>
+      <section class="standards-grid">
+        <article class="card workout-card">
+          <div class="card-heading"><div><p class="kicker">TRAINING</p><h2>Move your body</h2></div><span class="card-symbol">↗</span></div>
+          <div id="workoutList" class="check-list"></div>
+          <button class="text-btn" id="addWorkout">+ ADD CUSTOM TASK</button>
+        </article>
+
+        <article class="card hydration-card">
+          <div class="card-heading"><div><p class="kicker">HYDRATION</p><h2>Water is discipline.</h2></div><span id="waterCount" class="water-count">0 <small>/ 8</small></span></div>
+          <div class="water-glasses" id="waterGlasses"></div>
+          <p class="water-note" id="waterMessage">Start with the next glass.</p>
+        </article>
+
+        <article class="card vitamins-card">
+          <div class="card-heading"><div><p class="kicker">FOUNDATION</p><h2>Take your vitamins</h2></div><span class="card-symbol">+</span></div>
+          <div id="vitaminList" class="check-list compact"></div>
+          <button class="text-btn" id="addVitamin">+ ADD VITAMIN</button>
+        </article>
+      </section>
+
+      <section class="journal-section">
+        <div class="journal-title"><p class="eyebrow">365 DAYS OF CLARITY</p><h2>Write it down.<br><em>Make it real.</em></h2><p>Not a performance. A record of the person you're becoming.</p><div class="journal-day"><span>JOURNAL DAY</span><strong id="journalDay">01</strong><span>/ 365</span></div></div>
+        <article class="journal-card">
+          <p class="prompt-label">TODAY'S PROMPT</p>
+          <h3 id="journalPrompt"></h3>
+          <textarea id="journalText" placeholder="No perfect words required. Start where you are."></textarea>
+          <div class="journal-footer"><span id="journalStatus">Your entry stays on this device.</span><button class="save-btn" id="saveJournal">SAVE ENTRY <span>→</span></button></div>
+        </article>
+      </section>
+
+      <section class="bottom-quote"><p>“The obstacle is the path.”</p><span>YOUR ONLY JOB IS TO KEEP WALKING.</span></section>
+    </main>
+
+    <dialog id="settingsModal"><form method="dialog" class="settings-panel"><button class="close-btn" value="cancel">×</button><p class="kicker">YOUR STARTING LINE</p><h2>Set your quit date</h2><p>Your streak is calculated from this date. Keep it honest.</p><label>QUIT DATE <input type="date" id="quitDateInput"></label><button class="save-btn" id="saveSettings" value="default">SAVE START DATE →</button><hr><button class="danger-btn" id="resetData" type="button">RESET ALL LOCAL DATA</button></form></dialog>
+    <div class="timer-popover" id="timerPopover" hidden><button id="closeTimer" aria-label="Close timer">×</button><p class="kicker">STAY WITH THE WAVE</p><strong id="timerDisplay">10:00</strong><span id="timerMessage">Breathe. This will pass.</span></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
